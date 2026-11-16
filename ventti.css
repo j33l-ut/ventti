@@ -1,0 +1,85 @@
+/* Ventti-pelin CSS-tiedosto*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+#pelilauta {
+    background-color: rgb(210, 231, 239);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid rgb(148, 120, 231);
+    display: inline-block;
+    overflow: auto;
+}
+
+#napit {
+    margin: 20px;
+}
+
+button {
+    font-weight: bold;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#uusi_peli {
+    float: right;
+}
+
+#ota_kortti {
+    float: left;
+}
+
+.kortti {
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 90px;
+    height: 120px;
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+    vertical-align: top;
+}
+
+#pelaajan-kortit, #jakan-kortit {
+    display: flex;
+}
+
+#tulos {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 60px;
+}
+
+.musta, .punainen {
+    background-color: white;
+}
+
+.musta.symboli {
+    color:black
+}
+
+
+.punainen .symboli {
+    color: red
+}
+
+.kortti span{
+    display: block;
+}
+
+.kortti .symboli {
+    font-size: 30px;
+}
+
+.kortti .tokanumero {
+    transform: scale(-1, -1);
+}
+

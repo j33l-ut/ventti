@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventti</title>
+    <script src="ventti.js" defer></script>
+    <link rel="stylesheet" href="ventti.css">
+</head>
+<body>
+    <h1>Mun ventti peli</h1>
+    <div id="scoreboard">
+    <div>Pelaaja: <span id="playerScore">0</span></div>
+    <div>Jakaja: <span id="dealerScore">0</span></div>
+</div>
+    <div id="pelilauta">
+        <div id="napit">
+            <button id="ota_kortti">Ota kortti</button>
+            <button id="jaa">Jää</button>
+            <button id="uusi_peli">Uusi peli</button>
+        </div>
+
+        <div id="pelaajanKortit">
+            <div id="pelaaja1" class="kortti"></div>
+            <div id="pelaaja2" class="kortti"></div>
+            <div id="pelaaja3" class="kortti"></div>
+            <div id="pelaaja4" class="kortti"></div>
+            <div id="pelaaja5" class="kortti"></div>
+        </div>
+
+        <div id="tulos">Aloita peli painamalla "Uusi peli" -nappia.</div>
+        <div id="jakajanKortit">
+            <div id="jakaja1" class="kortti"></div>
+            <div id="jakaja2" class="kortti"></div>
+            <div id="jakaja3" class="kortti"></div>
+            <div id="jakaja4" class="kortti"></div>
+            <div id="jakaja5" class="kortti"></div>
+        </div>
+        
+        <div id="saannot-div">
+        <button id="saannot">Säännöt</button>
+    </div>
+    </div>
+</body>
+</html>
