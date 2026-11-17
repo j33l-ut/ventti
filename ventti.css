@@ -1,85 +1,253 @@
-/* Ventti-pelin CSS-tiedosto*/
+/* Ventti-pelin CSS-tiedosto */
+
+:root {
+    color-scheme: dark;
+    --tausta: #10131d;
+    --pinta: #1b2030;
+    --pinta-vaalea: #252c3e;
+    --korostus: #c9ff4a;
+    --teksti: #f3f5ed;
+    --himmea-teksti: #a9b0c1;
+}
 
 * {
     box-sizing: border-box;
 }
 
 body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(18px, 5vw, 56px) 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--teksti);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background:
+        radial-gradient(ellipse at 50% 0, rgba(91, 72, 173, 0.3), transparent 55%),
+        repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 255, 255, 0.018) 34px 35px),
+        var(--tausta);
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: var(--korostus);
+    font-size: clamp(30px, 7vw, 54px);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1;
     text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 28px rgba(201, 255, 74, 0.24);
+}
+
+#scoreboard {
+    width: min(440px, 100%);
+    margin-bottom: 18px;
+    display: flex;
+    gap: 10px;
+}
+
+#scoreboard div {
+    flex: 1;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: var(--himmea-teksti);
+    background: var(--pinta);
+    border: 1px solid #343b50;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#scoreboard span {
+    color: var(--korostus);
+    font-size: 20px;
+    font-variant-numeric: tabular-nums;
 }
 
 #pelilauta {
-    background-color: rgb(210, 231, 239);
-    padding: 30px;
-    border-radius: 15px;
-    border: 3px solid rgb(148, 120, 231);
-    display: inline-block;
-    overflow: auto;
+    width: min(860px, 100%);
+    padding: clamp(16px, 4vw, 32px);
+    overflow: hidden;
+    background: linear-gradient(145deg, #202638, #171b28 70%);
+    border: 1px solid #394158;
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.48), 0 0 0 5px rgba(255, 255, 255, 0.025);
 }
 
 #napit {
-    margin: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 button {
-    font-weight: bold;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
+    min-height: 46px;
+    padding: 11px 20px;
+    color: var(--teksti);
+    background: var(--pinta-vaalea);
+    border: 1px solid #414a62;
+    border-radius: 10px;
+    font: 800 14px "Trebuchet MS", Arial, sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
 }
 
-#uusi_peli {
-    float: right;
+button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--korostus);
+    outline-offset: 3px;
 }
 
 #ota_kortti {
-    float: left;
+    color: #141a0c;
+    background: var(--korostus);
+    border-color: var(--korostus);
+}
+
+#jaa {
+    color: #19150b;
+    background: #ffc857;
+    border-color: #ffc857;
+}
+
+#uusi_peli {
+    border-color: #8171dd;
+    background: #5143a2;
+}
+
+#pelaajanKortit,
+#jakajanKortit {
+    min-height: clamp(82px, 21vw, 140px);
+    display: flex;
+    justify-content: center;
+    gap: clamp(5px, 1.5vw, 14px);
 }
 
 .kortti {
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 90px;
-    height: 120px;
-    display: inline-block;
-    margin: 5px;
-    padding: 20px;
-    vertical-align: top;
+    position: relative;
+    width: clamp(42px, 12vw, 82px);
+    height: clamp(66px, 18vw, 122px);
+    flex: 0 1 82px;
+    overflow: hidden;
+    background: #fbfaf5;
+    border: 2px solid #d5d8df;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
-#pelaajan-kortit, #jakan-kortit {
-    display: flex;
+.kortti:empty {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px dashed #596176;
+    box-shadow: none;
 }
 
-#tulos {
-    padding: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    height: 60px;
-}
-
-.musta, .punainen {
-    background-color: white;
-}
-
-.musta.symboli {
-    color:black
-}
-
-
-.punainen .symboli {
-    color: red
-}
-
-.kortti span{
+.kortti span {
     display: block;
 }
 
-.kortti .symboli {
-    font-size: 30px;
+.kortti .ekanumero,
+.kortti .tokanumero {
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 900;
 }
 
 .kortti .tokanumero {
-    transform: scale(-1, -1);
+    top: auto;
+    right: 7px;
+    bottom: 5px;
+    left: auto;
+    transform: rotate(180deg);
 }
 
+.kortti .symboli {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding-top: 3px;
+    font-size: clamp(25px, 7vw, 42px);
+}
+
+.musta {
+    color: #202537;
+}
+
+.punainen {
+    color: #dc3e57;
+}
+
+#tulos {
+    min-height: 72px;
+    margin: 18px 0;
+    padding: 16px;
+    display: grid;
+    place-items: center;
+    color: var(--korostus);
+    background: rgba(8, 10, 16, 0.32);
+    border: 1px solid #343b50;
+    border-radius: 12px;
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 800;
+    text-align: center;
+}
+
+#saannot-div {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#saannot {
+    color: var(--himmea-teksti);
+    background: transparent;
+    border-color: #414a62;
+}
+
+#saannot:hover {
+    color: var(--teksti);
+    background: var(--pinta-vaalea);
+}
+
+@media (max-width: 420px) {
+    #scoreboard div {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    #napit button {
+        flex: 1 1 100px;
+        padding: 10px 12px;
+    }
+
+    .kortti {
+        border-radius: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
